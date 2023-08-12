@@ -7,3 +7,4 @@ Game Even https://asciinema.org/a/OT500GHiNLPf4Ov5DBxhMxuZk
 Game Calc https://asciinema.org/a/QsPbHeW4S7xG6FkqcJ3cRlOCD
 Game GCD https://asciinema.org/a/8JKagWLdVfs8QSA229lkH9mSg
 Game Progression https://asciinema.org/a/GTimHYbVdcMdzTyP0UX0cur58
+Game Prime https://asciinema.org/a/nbPBhhzgNHJZRcZjU6dNCLZm0
