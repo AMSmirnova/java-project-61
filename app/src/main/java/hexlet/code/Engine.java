@@ -1,5 +1,9 @@
 package hexlet.code;
 
+import hexlet.code.games.GameCalc;
+import hexlet.code.games.GameEven;
+import hexlet.code.games.GameGCD;
+
 import java.util.Scanner;
 
 public class Engine {
@@ -16,6 +20,34 @@ public class Engine {
         System.out.print("May I have your name? ");
         userName = scanner.next();
         System.out.println("Hello, " + userName + "!");
+    }
+
+    public static void runGame() {
+        if (userName == null && !userChoice.equals("1")) {
+            greetings();
+        }
+        countCorrectAnswers = 0;
+        wasFalseAnswer = false;
+
+        switch (userChoice) {
+            case "1":
+                greetings();
+                break;
+            case "2":
+                GameEven.gameEven();
+                break;
+            case "3":
+                GameCalc.gameCalc();
+                break;
+            case "4":
+                GameGCD.gameGCD();
+                break;
+            case "0":
+                System.out.println("See you soon!");
+                break;
+            default:
+                System.out.println("incorrect number\n");
+        }
     }
     public static void checkAnswer(String question) {
         Scanner scanner = new Scanner(System.in);

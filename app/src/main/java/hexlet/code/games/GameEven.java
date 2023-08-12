@@ -17,7 +17,7 @@ public class GameEven {
             Engine.correctAnswer = question % 2 == 0 ? "yes" : "no";
             Engine.checkAnswer(String.valueOf(question));
         }
-        Engine.countCorrectAnswers = 0;
-        Engine.wasFalseAnswer = false;
+//        Engine.countCorrectAnswers = 0;
+//        Engine.wasFalseAnswer = false;
     }
 }
