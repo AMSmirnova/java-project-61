@@ -1,27 +1,38 @@
 package hexlet.code;
 
+import hexlet.code.games.GameCalc;
+import hexlet.code.games.GameEven;
+
 import java.util.Scanner;
 
 public class App {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        String userChoice = "1";
+        Engine.userChoice = "1";
 
-        while (!userChoice.equals("0")) {
+        while (!Engine.userChoice.equals("0")) {
 
             System.out.println("Please enter the game number and press Enter.\n"
                     + "1 - Greet\n"
                     + "2 - Even\n"
+                    + "3 - Calc\n"
                     + "0 - Exit");
             System.out.print("Your choice: ");
-            userChoice = scanner.next();
+            Engine.userChoice = scanner.next();
 
-            switch (userChoice) {
+            if (Engine.userName == null && !Engine.userChoice.equals("1")) {
+                Engine.greetings();
+            }
+
+            switch (Engine.userChoice) {
                 case "1":
-                    Games.greetings();
+                    Engine.greetings();
                     break;
                 case "2":
-                    Games.gameEven();
+                    GameEven.gameEven();
+                    break;
+                case "3":
+                    GameCalc.gameCalc();
                     break;
                 case "0":
                     System.out.println("See you soon!");
