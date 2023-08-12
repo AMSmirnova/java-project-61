@@ -1,9 +1,11 @@
 package hexlet.code;
 
-import hexlet.code.games.GameCalc;
 import hexlet.code.games.GameEven;
+import hexlet.code.games.GameCalc;
 import hexlet.code.games.GameGCD;
 import hexlet.code.games.GameProgression;
+import hexlet.code.games.GamePrime;
+
 
 import java.util.Scanner;
 
@@ -31,26 +33,14 @@ public class Engine {
         wasFalseAnswer = false;
 
         switch (userChoice) {
-            case "1":
-                greetings();
-                break;
-            case "2":
-                GameEven.gameEven();
-                break;
-            case "3":
-                GameCalc.gameCalc();
-                break;
-            case "4":
-                GameGCD.gameGCD();
-                break;
-            case "5":
-                GameProgression.gameProgression();
-                break;
-            case "0":
-                System.out.println("See you soon!");
-                break;
-            default:
-                System.out.println("incorrect number\n");
+            case "1" -> greetings();
+            case "2" -> GameEven.gameEven();
+            case "3" -> GameCalc.gameCalc();
+            case "4" -> GameGCD.gameGCD();
+            case "5" -> GameProgression.gameProgression();
+            case "6" -> GamePrime.gamePrime();
+            case "0" -> System.out.println("See you soon!");
+            default -> System.out.println("incorrect number\n");
         }
     }
     public static void checkAnswer(String question) {
