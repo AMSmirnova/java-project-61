@@ -3,4 +3,5 @@
 [![Maintainability](https://api.codeclimate.com/v1/badges/7b2e0864c3f3db0972e5/maintainability)](https://codeclimate.com/github/AMSmirnova/java-project-61/maintainability)
 
 ### asciinema
-https://asciinema.org/a/OT500GHiNLPf4Ov5DBxhMxuZk
+Game Even https://asciinema.org/a/OT500GHiNLPf4Ov5DBxhMxuZk
+Game Calc https://asciinema.org/a/QsPbHeW4S7xG6FkqcJ3cRlOCD
