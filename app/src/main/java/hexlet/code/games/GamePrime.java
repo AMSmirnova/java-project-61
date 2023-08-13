@@ -10,24 +10,28 @@ public class GamePrime {
     public static void gamePrime() {
         String userName = Engine.greetings();
         System.out.println("Answer 'yes' if given number is prime. Otherwise answer 'no'.");
-        boolean wasCorrectAnswer = true;
-        Random rand = new Random();
-        int countCorrectAnswers = 0;
 
-        while (countCorrectAnswers < Engine.AMOUNT_CORRECT_ANSWERS && wasCorrectAnswer) {
-            int number = rand.nextInt(MIN_NUMBER, MAX_NUMBER);
-            String correctAnswer = isPrime(number);
-            String question = String.valueOf(number);
-            wasCorrectAnswer = Engine.checkAnswer(question, correctAnswer);
-            if (wasCorrectAnswer) {
-                countCorrectAnswers++;
-            }
-        }
-        if (countCorrectAnswers == Engine.AMOUNT_CORRECT_ANSWERS) {
+        if (resultOfGame()) {
             System.out.println("Congratulations, " + userName + "!");
         } else {
             System.out.println("Let's try again, " + userName + "!");
         }
+    }
+
+    public static boolean resultOfGame() {
+        Random rand = new Random();
+        int countCorrectAnswers = 0;
+
+        while (countCorrectAnswers < Engine.AMOUNT_CORRECT_ANSWERS) {
+            int number = rand.nextInt(MIN_NUMBER, MAX_NUMBER);
+            String correctAnswer = isPrime(number);
+            String question = String.valueOf(number);
+            if (!Engine.checkAnswer(question, correctAnswer)) {
+                return false;
+            }
+            countCorrectAnswers++;
+        }
+        return true;
     }
 
     public static String isPrime(int number) {

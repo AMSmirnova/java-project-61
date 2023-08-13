@@ -13,11 +13,18 @@ public class GameProgression {
     public static void gameProgression() {
         String userName = Engine.greetings();
         System.out.println("What number is missing in the progression?");
-        boolean wasCorrectAnswer = true;
+
+        if (resultOfGame()) {
+            System.out.println("Congratulations, " + userName + "!");
+        } else {
+            System.out.println("Let's try again, " + userName + "!");
+        }
+    }
+    public static boolean resultOfGame() {
         Random rand = new Random();
         int countCorrectAnswers = 0;
 
-        while (countCorrectAnswers < Engine.AMOUNT_CORRECT_ANSWERS && wasCorrectAnswer) {
+        while (countCorrectAnswers < Engine.AMOUNT_CORRECT_ANSWERS) {
             String[] numbersString = new String[AMOUNT_NUMBERS];
             int[] numbers = new int[AMOUNT_NUMBERS];
             int addictive = rand.nextInt(1, MAX_ADDICTIVE);
@@ -35,16 +42,11 @@ public class GameProgression {
                     .replace(",", "")
                     .replace("[", "")
                     .replace("]", "");
-            wasCorrectAnswer = Engine.checkAnswer(question, correctAnswer);
-            if (wasCorrectAnswer) {
-                countCorrectAnswers++;
+            if (!Engine.checkAnswer(question, correctAnswer)) {
+                return false;
             }
+            countCorrectAnswers++;
         }
-        if (countCorrectAnswers == Engine.AMOUNT_CORRECT_ANSWERS) {
-            System.out.println("Congratulations, " + userName + "!");
-        } else {
-            System.out.println("Let's try again, " + userName + "!");
-        }
+        return true;
     }
-
 }

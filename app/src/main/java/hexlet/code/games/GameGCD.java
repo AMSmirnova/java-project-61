@@ -11,25 +11,28 @@ public class GameGCD {
         String userName = Engine.greetings();
         System.out.println("Find the greatest common divisor of given numbers.");
 
-        boolean wasCorrectAnswer = true;
-        Random rand = new Random();
-        int countCorrectAnswers = 0;
-
-        while (countCorrectAnswers < Engine.AMOUNT_CORRECT_ANSWERS && wasCorrectAnswer) {
-            int number1 = rand.nextInt(MIN_NUMBERS, MAX_NUMBERS);
-            int number2 = rand.nextInt(MIN_NUMBERS, MAX_NUMBERS);
-            String correctAnswer = String.valueOf(gcd(number1, number2));
-            String question = number1 + " " + number2;
-            wasCorrectAnswer = Engine.checkAnswer(question, correctAnswer);
-            if (wasCorrectAnswer) {
-                countCorrectAnswers++;
-            }
-        }
-        if (countCorrectAnswers == Engine.AMOUNT_CORRECT_ANSWERS) {
+        if (resultOfGame()) {
             System.out.println("Congratulations, " + userName + "!");
         } else {
             System.out.println("Let's try again, " + userName + "!");
         }
+    }
+
+    public static boolean resultOfGame() {
+        Random rand = new Random();
+        int countCorrectAnswers = 0;
+
+        while (countCorrectAnswers < Engine.AMOUNT_CORRECT_ANSWERS) {
+            int number1 = rand.nextInt(MIN_NUMBERS, MAX_NUMBERS);
+            int number2 = rand.nextInt(MIN_NUMBERS, MAX_NUMBERS);
+            String correctAnswer = String.valueOf(gcd(number1, number2));
+            String question = number1 + " " + number2;
+            if (!Engine.checkAnswer(question, correctAnswer)) {
+                return false;
+            }
+            countCorrectAnswers++;
+        }
+        return true;
     }
 
     public static int gcd(int number1, int number2) {

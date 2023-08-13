@@ -10,11 +10,18 @@ public class GameCalc {
     public static void gameCalc() {
         String userName = Engine.greetings();
         System.out.println("What is the result of the expression?");
-        boolean wasCorrectAnswer = true;
+
+        if (resultOfGame()) {
+            System.out.println("Congratulations, " + userName + "!");
+        } else {
+            System.out.println("Let's try again, " + userName + "!");
+        }
+    }
+    public static boolean resultOfGame() {
         Random rand = new Random();
         int countCorrectAnswers = 0;
 
-        while (countCorrectAnswers < Engine.AMOUNT_CORRECT_ANSWERS && wasCorrectAnswer) {
+        while (countCorrectAnswers < Engine.AMOUNT_CORRECT_ANSWERS) {
             int number1 = rand.nextInt(0, MAX_NUMBERS);
             int number2 = rand.nextInt(0, MAX_NUMBERS);
             int sign = rand.nextInt(0, MAX_SIGN);
@@ -36,15 +43,11 @@ public class GameCalc {
                 default -> {
                 }
             }
-            wasCorrectAnswer = Engine.checkAnswer(question, correctAnswer);
-            if (wasCorrectAnswer) {
-                countCorrectAnswers++;
+            if (!Engine.checkAnswer(question, correctAnswer)) {
+                return false;
             }
+            countCorrectAnswers++;
         }
-        if (countCorrectAnswers == Engine.AMOUNT_CORRECT_ANSWERS) {
-            System.out.println("Congratulations, " + userName + "!");
-        } else {
-            System.out.println("Let's try again, " + userName + "!");
-        }
+        return true;
     }
 }

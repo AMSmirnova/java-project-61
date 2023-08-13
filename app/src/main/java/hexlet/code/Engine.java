@@ -11,13 +11,6 @@ import java.util.Scanner;
 public class Engine {
     public static final int AMOUNT_CORRECT_ANSWERS = 3;
 
-//    private static String userName;
-//    public static String userChoice;
-//    public static String userAnswer;
-//    public static String correctAnswer;
-//    public static boolean wasFalseAnswer = false;
-//    public static int countCorrectAnswers = 0;
-
     public static String greetings() {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Welcome to the Brain Games!");
