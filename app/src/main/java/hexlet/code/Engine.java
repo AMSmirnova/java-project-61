@@ -35,7 +35,8 @@ public class Engine {
             case "4" -> GameGCD.gameGCD();
             case "5" -> GameProgression.gameProgression();
             case "6" -> GamePrime.gamePrime();
-            default -> System.out.println("incorrect number");
+            default -> {
+            }
         }
     }
     public static void checkAnswer(String question) {

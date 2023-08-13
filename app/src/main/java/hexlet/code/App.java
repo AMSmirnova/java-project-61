@@ -22,9 +22,7 @@ public class App {
             System.out.print("Your choice: ");
             Engine.userChoice = scanner.next();
 
-            if (!Engine.userChoice.equals("0")) {
-                Engine.runGame();
-            }
+            Engine.runGame();
         }
         scanner.close();
     }
