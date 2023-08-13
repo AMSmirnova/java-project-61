@@ -7,7 +7,7 @@ public class App {
         Scanner scanner = new Scanner(System.in);
         Engine.userChoice = "1";
 
-        while (!Engine.userChoice.equals("0")) {
+        while (Engine.userChoice.equals("1")) {
 
             System.out.println("Please enter the game number and press Enter.\n"
                     + "1 - Greet\n"
@@ -20,7 +20,9 @@ public class App {
             System.out.print("Your choice: ");
             Engine.userChoice = scanner.next();
 
-            Engine.runGame();
+            if (!Engine.userChoice.equals("0")) {
+                Engine.runGame();
+            }
         }
         scanner.close();
     }

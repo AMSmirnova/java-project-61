@@ -7,7 +7,7 @@ import java.util.Random;
 
 public class GameProgression {
     public static void gameProgression() {
-        System.out.println("\nWhat number is missing in the progression?");
+        System.out.println("What number is missing in the progression?");
         Random rand = new Random();
 
         while (Engine.countCorrectAnswers < 3 && !Engine.wasFalseAnswer) {

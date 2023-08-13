@@ -10,7 +10,7 @@ public class GameEven {
         Random rand = new Random();
         int question;
 
-        System.out.println("\nAnswer 'yes' if the number is even, otherwise answer 'no'.");
+        System.out.println("Answer 'yes' if the number is even, otherwise answer 'no'.");
 
         while (Engine.countCorrectAnswers < 3 && !Engine.wasFalseAnswer) {
             question = rand.nextInt();

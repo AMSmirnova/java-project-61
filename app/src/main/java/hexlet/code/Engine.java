@@ -6,7 +6,6 @@ import hexlet.code.games.GameGCD;
 import hexlet.code.games.GameProgression;
 import hexlet.code.games.GamePrime;
 
-
 import java.util.Scanner;
 
 public class Engine {
@@ -40,7 +39,7 @@ public class Engine {
             case "5" -> GameProgression.gameProgression();
             case "6" -> GamePrime.gamePrime();
             case "0" -> System.out.println("See you soon!");
-            default -> System.out.println("incorrect number\n");
+            default -> System.out.println("incorrect number");
         }
     }
     public static void checkAnswer(String question) {
@@ -61,11 +60,11 @@ public class Engine {
                     + "'.\n"
                     + "Let's try again, "
                     + userName
-                    + "!\n");
+                    + "!");
         }
 
         if (countCorrectAnswers == 3) {
-            System.out.println("\nCongratulations, " + userName + "!\n");
+            System.out.println("Congratulations, " + userName + "!");
         }
 
     }

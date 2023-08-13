@@ -8,7 +8,7 @@ public class GameCalc {
     public static void gameCalc() {
         Random rand = new Random();
 
-        System.out.println("\nWhat is the result of the expression?");
+        System.out.println("What is the result of the expression?");
 
         while (Engine.countCorrectAnswers < 3 && !Engine.wasFalseAnswer) {
             int number1 = rand.nextInt(0, 16);

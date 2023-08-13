@@ -6,7 +6,7 @@ import java.util.Random;
 
 public class GamePrime {
     public static void gamePrime() {
-        System.out.println("\nAnswer 'yes' if given number is prime. Otherwise answer 'no'.");
+        System.out.println("Answer 'yes' if given number is prime. Otherwise answer 'no'.");
         Random rand = new Random();
 
         while (Engine.countCorrectAnswers < 3 && !Engine.wasFalseAnswer) {
