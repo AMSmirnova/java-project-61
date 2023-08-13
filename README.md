@@ -3,8 +3,9 @@
 [![Maintainability](https://api.codeclimate.com/v1/badges/7b2e0864c3f3db0972e5/maintainability)](https://codeclimate.com/github/AMSmirnova/java-project-61/maintainability)
 
 ### asciinema
-Game Even https://asciinema.org/a/OT500GHiNLPf4Ov5DBxhMxuZk
-Game Calc https://asciinema.org/a/QsPbHeW4S7xG6FkqcJ3cRlOCD
-Game GCD https://asciinema.org/a/8JKagWLdVfs8QSA229lkH9mSg
-Game Progression https://asciinema.org/a/GTimHYbVdcMdzTyP0UX0cur58
-Game Prime https://asciinema.org/a/nbPBhhzgNHJZRcZjU6dNCLZm0
+Greet https://asciinema.org/a/2jPHnCKkxKXGhPdy7rDlKFbkL
+Game Even https://asciinema.org/a/yGaBNHkWOQ8eDY16QLZh0mtHz
+Game Calc https://asciinema.org/a/Tv6KAAO5aSolWk2H1Dt5HaZXb
+Game GCD https://asciinema.org/a/ELy3g2L22f5ql3nQFopcZ5snP
+Game Progression https://asciinema.org/a/eeh9hWc00zMJy7A3Pnq9E2CSC
+Game Prime https://asciinema.org/a/yWkd5CWUh1ql7cVAtR38GBMxr
