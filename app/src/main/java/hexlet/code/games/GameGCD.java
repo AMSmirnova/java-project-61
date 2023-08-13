@@ -5,17 +5,30 @@ import hexlet.code.Engine;
 import java.util.Random;
 
 public class GameGCD {
+    private static final int MIN_NUMBERS = 3;
+    private static final int MAX_NUMBERS = 51;
     public static void gameGCD() {
-        Engine.greetings();
+        String userName = Engine.greetings();
         System.out.println("Find the greatest common divisor of given numbers.");
 
+        boolean wasCorrectAnswer = true;
         Random rand = new Random();
+        int countCorrectAnswers = 0;
 
-        while (Engine.countCorrectAnswers < 3 && !Engine.wasFalseAnswer) {
-            int number1 = rand.nextInt(3, 51);
-            int number2 = rand.nextInt(3, 51);
-            Engine.correctAnswer = String.valueOf(gcd(number1, number2));
-            Engine.checkAnswer(number1 + " " + number2);
+        while (countCorrectAnswers < Engine.AMOUNT_CORRECT_ANSWERS && wasCorrectAnswer) {
+            int number1 = rand.nextInt(MIN_NUMBERS, MAX_NUMBERS);
+            int number2 = rand.nextInt(MIN_NUMBERS, MAX_NUMBERS);
+            String correctAnswer = String.valueOf(gcd(number1, number2));
+            String question = number1 + " " + number2;
+            wasCorrectAnswer = Engine.checkAnswer(question, correctAnswer);
+            if (wasCorrectAnswer) {
+                countCorrectAnswers++;
+            }
+        }
+        if (countCorrectAnswers == Engine.AMOUNT_CORRECT_ANSWERS) {
+            System.out.println("Congratulations, " + userName + "!");
+        } else {
+            System.out.println("Let's try again, " + userName + "!");
         }
     }
 

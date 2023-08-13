@@ -5,9 +5,6 @@ import java.util.Scanner;
 public class App {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        Engine.userChoice = "1";
-        Engine.countCorrectAnswers = 0;
-        Engine.wasFalseAnswer = false;
 
         System.out.println("Please enter the game number and press Enter.\n"
                 + "1 - Greet\n"
@@ -18,8 +15,8 @@ public class App {
                 + "6 - Prime\n"
                 + "0 - Exit");
         System.out.print("Your choice: ");
-        Engine.userChoice = scanner.next();
-        Engine.runGame();
+        String userChoice = scanner.next();
+        Engine.runGame(userChoice);
 
         scanner.close();
     }

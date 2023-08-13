@@ -5,15 +5,28 @@ import hexlet.code.Engine;
 import java.util.Random;
 
 public class GamePrime {
+    private static final int MAX_NUMBER = 50; // the maximum possible number in the task
+    private static final int MIN_NUMBER = 2; // the minimum possible number in the task
     public static void gamePrime() {
-        Engine.greetings();
+        String userName = Engine.greetings();
         System.out.println("Answer 'yes' if given number is prime. Otherwise answer 'no'.");
+        boolean wasCorrectAnswer = true;
         Random rand = new Random();
+        int countCorrectAnswers = 0;
 
-        while (Engine.countCorrectAnswers < 3 && !Engine.wasFalseAnswer) {
-            int question = rand.nextInt(2, 50);
-            Engine.correctAnswer = isPrime(question);
-            Engine.checkAnswer(String.valueOf(question));
+        while (countCorrectAnswers < Engine.AMOUNT_CORRECT_ANSWERS && wasCorrectAnswer) {
+            int number = rand.nextInt(MIN_NUMBER, MAX_NUMBER);
+            String correctAnswer = isPrime(number);
+            String question = String.valueOf(number);
+            wasCorrectAnswer = Engine.checkAnswer(question, correctAnswer);
+            if (wasCorrectAnswer) {
+                countCorrectAnswers++;
+            }
+        }
+        if (countCorrectAnswers == Engine.AMOUNT_CORRECT_ANSWERS) {
+            System.out.println("Congratulations, " + userName + "!");
+        } else {
+            System.out.println("Let's try again, " + userName + "!");
         }
     }
 
