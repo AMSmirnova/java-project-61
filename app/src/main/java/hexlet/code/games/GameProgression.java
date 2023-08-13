@@ -7,9 +7,7 @@ import java.util.Random;
 
 public class GameProgression {
     public static void gameProgression() {
-        if (Engine.userName == null) {
-            Engine.greetings();
-        }
+        Engine.greetings();
         System.out.println("What number is missing in the progression?");
         Random rand = new Random();
 

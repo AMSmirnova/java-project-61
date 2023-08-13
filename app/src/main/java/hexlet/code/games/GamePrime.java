@@ -6,9 +6,7 @@ import java.util.Random;
 
 public class GamePrime {
     public static void gamePrime() {
-        if (Engine.userName == null) {
-            Engine.greetings();
-        }
+        Engine.greetings();
         System.out.println("Answer 'yes' if given number is prime. Otherwise answer 'no'.");
         Random rand = new Random();
 

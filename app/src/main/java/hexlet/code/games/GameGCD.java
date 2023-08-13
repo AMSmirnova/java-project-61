@@ -6,9 +6,7 @@ import java.util.Random;
 
 public class GameGCD {
     public static void gameGCD() {
-        if (Engine.userName == null) {
-            Engine.greetings();
-        }
+        Engine.greetings();
         System.out.println("Find the greatest common divisor of given numbers.");
 
         Random rand = new Random();

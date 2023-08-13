@@ -6,12 +6,9 @@ import java.util.Random;
 
 public class GameCalc {
     public static void gameCalc() {
-        if (Engine.userName == null) {
-            Engine.greetings();
-        }
-        Random rand = new Random();
-
+        Engine.greetings();
         System.out.println("What is the result of the expression?");
+        Random rand = new Random();
 
         while (Engine.countCorrectAnswers < 3 && !Engine.wasFalseAnswer) {
             int number1 = rand.nextInt(0, 16);
