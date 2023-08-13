@@ -6,6 +6,8 @@ public class App {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         Engine.userChoice = "1";
+        Engine.countCorrectAnswers = 0;
+        Engine.wasFalseAnswer = false;
 
         while (Engine.userChoice.equals("1")) {
 

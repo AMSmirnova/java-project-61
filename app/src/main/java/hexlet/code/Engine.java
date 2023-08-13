@@ -25,9 +25,6 @@ public class Engine {
     }
 
     public static void runGame() {
-        if (userName == null && !userChoice.equals("1")) {
-            greetings();
-        }
         countCorrectAnswers = 0;
         wasFalseAnswer = false;
 
@@ -38,7 +35,6 @@ public class Engine {
             case "4" -> GameGCD.gameGCD();
             case "5" -> GameProgression.gameProgression();
             case "6" -> GamePrime.gamePrime();
-            case "0" -> System.out.println("See you soon!");
             default -> System.out.println("incorrect number");
         }
     }
