@@ -2,51 +2,55 @@ package hexlet.code.games;
 
 import hexlet.code.Engine;
 
-import java.util.Arrays;
 import java.util.Random;
 
 public class GameProgression {
+    private static final String TASK = "What number is missing in the progression?";
     private static final int AMOUNT_NUMBERS = 10; // amount of numbers in progression
     private static final int MAX_FIRST_NUMBER = 20; // the maximum possible first number in progression
     private static final int MAX_ADDICTIVE = 4; // // the maximum possible addition to the number
+    private static final int MIN_ADDICTIVE = 1; // // the minimum possible addition to the number
 
     public static void gameProgression() {
-        String userName = Engine.greetings();
-        System.out.println("What number is missing in the progression?");
-
-        if (resultOfGame()) {
-            System.out.println("Congratulations, " + userName + "!");
-        } else {
-            System.out.println("Let's try again, " + userName + "!");
-        }
-    }
-    public static boolean resultOfGame() {
         Random rand = new Random();
-        int countCorrectAnswers = 0;
+        String[] questions = new String[Engine.AMOUNT_CORRECT_ANSWERS];
+        String[] correctAnswers = new String[Engine.AMOUNT_CORRECT_ANSWERS];
 
-        while (countCorrectAnswers < Engine.AMOUNT_CORRECT_ANSWERS) {
-            String[] numbersString = new String[AMOUNT_NUMBERS];
-            int[] numbers = new int[AMOUNT_NUMBERS];
-            int addictive = rand.nextInt(1, MAX_ADDICTIVE);
+        for (int i = 0; i < Engine.AMOUNT_CORRECT_ANSWERS; i++) {
+            int addictive = rand.nextInt(MIN_ADDICTIVE, MAX_ADDICTIVE);
             int gap = rand.nextInt(0, AMOUNT_NUMBERS);
-            numbers[0] = rand.nextInt(MAX_FIRST_NUMBER);
-            numbersString[0] = String.valueOf(numbers[0]);
+            int firstNumber = rand.nextInt(MAX_FIRST_NUMBER);
 
-            for (int i = 1; i < AMOUNT_NUMBERS; i++) {
-                numbers[i] = numbers[i - 1] + addictive;
-                numbersString[i] = String.valueOf(numbers[i]);
+            String progression = "";
+            for (int j = 0; j < AMOUNT_NUMBERS; j++) {
+                if (j != gap) {
+                    progression = progression + " " + newProgressionNumber(firstNumber, addictive, j);
+                } else {
+                    progression = progression + " ..";
+                }
             }
-            String correctAnswer = numbersString[gap];
-            numbersString[gap] = "..";
-            String question = Arrays.toString(numbersString)
-                    .replace(",", "")
-                    .replace("[", "")
-                    .replace("]", "");
-            if (!Engine.checkAnswer(question, correctAnswer)) {
-                return false;
-            }
-            countCorrectAnswers++;
+
+            correctAnswers[i] = String.valueOf(newProgressionNumber(firstNumber, addictive, gap));
+            questions[i] = progression;
         }
-        return true;
+        Engine.runGame(TASK, questions, correctAnswers);
+    }
+
+//    public static String[] makeProgression(int firstNumber, int addictive, int amount) {
+//        String progression = "";
+//        int[] numbers = new int[amount];
+//        String[] numbersString = new String[numbers.length];
+//
+//        for (int i = 0; i < amount; i++) {
+//            progression = progression + " " + newProgressionNumber(firstNumber, addictive, i);
+//            numbers[i] = newProgressionNumber(firstNumber,addictive,i);
+//            numbersString[i] = String.valueOf(numbers[i]);
+//        }
+//
+//        return numbersString;
+//    }
+
+    public static int newProgressionNumber(int firstNumber, int addictive, int count) {
+        return firstNumber + addictive * count;
     }
 }

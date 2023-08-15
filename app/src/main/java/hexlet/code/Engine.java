@@ -1,11 +1,5 @@
 package hexlet.code;
 
-import hexlet.code.games.GameEven;
-import hexlet.code.games.GameCalc;
-import hexlet.code.games.GameGCD;
-import hexlet.code.games.GameProgression;
-import hexlet.code.games.GamePrime;
-
 import java.util.Scanner;
 
 public class Engine {
@@ -20,19 +14,24 @@ public class Engine {
         return userName;
     }
 
-    public static void runGame(String userChoice) {
+    public static void runGame(String task, String[] questions, String[] correctAnswers) {
+        String userName = greetings();
+        int countAnswers = 0;
+        boolean wasCorrectAnswer = true;
 
-        switch (userChoice) {
-            case "1" -> greetings();
-            case "2" -> GameEven.gameEven();
-            case "3" -> GameCalc.gameCalc();
-            case "4" -> GameGCD.gameGCD();
-            case "5" -> GameProgression.gameProgression();
-            case "6" -> GamePrime.gamePrime();
-            default -> {
-            }
+        System.out.println(task);
+        while (countAnswers < AMOUNT_CORRECT_ANSWERS && wasCorrectAnswer) {
+            wasCorrectAnswer = checkAnswer(questions[countAnswers], correctAnswers[countAnswers]);
+            countAnswers++;
+        }
+
+        if (wasCorrectAnswer) {
+            System.out.println("Congratulations, " + userName + "!");
+        } else {
+            System.out.println("Let's try again, " + userName + "!");
         }
     }
+
     public static boolean checkAnswer(String question, String correctAnswer) {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Question: " + question);
