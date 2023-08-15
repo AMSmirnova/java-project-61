@@ -31,24 +31,10 @@ public class GameProgression {
             }
 
             correctAnswers[i] = String.valueOf(newProgressionNumber(firstNumber, addictive, gap));
-            questions[i] = progression;
+            questions[i] = progression.trim();
         }
         Engine.runGame(TASK, questions, correctAnswers);
     }
-
-//    public static String[] makeProgression(int firstNumber, int addictive, int amount) {
-//        String progression = "";
-//        int[] numbers = new int[amount];
-//        String[] numbersString = new String[numbers.length];
-//
-//        for (int i = 0; i < amount; i++) {
-//            progression = progression + " " + newProgressionNumber(firstNumber, addictive, i);
-//            numbers[i] = newProgressionNumber(firstNumber,addictive,i);
-//            numbersString[i] = String.valueOf(numbers[i]);
-//        }
-//
-//        return numbersString;
-//    }
 
     public static int newProgressionNumber(int firstNumber, int addictive, int count) {
         return firstNumber + addictive * count;
