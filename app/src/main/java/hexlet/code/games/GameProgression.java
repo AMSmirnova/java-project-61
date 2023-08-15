@@ -21,19 +21,22 @@ public class GameProgression {
             int gap = rand.nextInt(0, AMOUNT_NUMBERS);
             int firstNumber = rand.nextInt(MAX_FIRST_NUMBER);
 
-            String progression = "";
-            for (int j = 0; j < AMOUNT_NUMBERS; j++) {
-                if (j != gap) {
-                    progression = progression + " " + newProgressionNumber(firstNumber, addictive, j);
-                } else {
-                    progression = progression + " ..";
-                }
-            }
-
             correctAnswers[i] = String.valueOf(newProgressionNumber(firstNumber, addictive, gap));
-            questions[i] = progression.trim();
+            questions[i] = makeProgression(firstNumber, addictive, gap);
         }
         Engine.runGame(TASK, questions, correctAnswers);
+    }
+
+    public static String makeProgression(int firstNumber, int addictive, int gap) {
+        String progression = "";
+        for (int i = 0; i < AMOUNT_NUMBERS; i++) {
+            if (i != gap) {
+                progression = progression + " " + newProgressionNumber(firstNumber, addictive, i);
+            } else {
+                progression = progression + " ..";
+            }
+        }
+        return progression.trim();
     }
 
     public static int newProgressionNumber(int firstNumber, int addictive, int count) {
