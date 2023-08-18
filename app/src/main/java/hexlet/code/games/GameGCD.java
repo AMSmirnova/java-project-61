@@ -10,16 +10,15 @@ public class GameGCD {
     private static final int MAX_NUMBERS = 51;
     public static void gameGCD() {
         Random rand = new Random();
-        String[] questions = new String[Engine.AMOUNT_CORRECT_ANSWERS];
-        String[] correctAnswers = new String[Engine.AMOUNT_CORRECT_ANSWERS];
+        String[][] questionsAnswers = new String[Engine.AMOUNT_CORRECT_ANSWERS][2];
 
         for (int i = 0; i < Engine.AMOUNT_CORRECT_ANSWERS; i++) {
             int number1 = rand.nextInt(MIN_NUMBERS, MAX_NUMBERS);
             int number2 = rand.nextInt(MIN_NUMBERS, MAX_NUMBERS);
-            correctAnswers[i] = String.valueOf(gcd(number1, number2));
-            questions[i] = number1 + " " + number2;
+            questionsAnswers[i][0] = number1 + " " + number2;
+            questionsAnswers[i][1] = String.valueOf(gcd(number1, number2));
         }
-        Engine.runGame(TASK, questions, correctAnswers);
+        Engine.runGame(TASK, questionsAnswers);
     }
 
     public static int gcd(int number1, int number2) {

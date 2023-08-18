@@ -10,18 +10,17 @@ public class GameCalc {
     private static final int MAX_SIGN = 3; // amount of signs
     public static void gameCalc() {
         Random rand = new Random();
-        String[] questions = new String[Engine.AMOUNT_CORRECT_ANSWERS];
-        String[] correctAnswers = new String[Engine.AMOUNT_CORRECT_ANSWERS];
+        String[][] questionsAnswers = new String[Engine.AMOUNT_CORRECT_ANSWERS][2];
 
         for (int i = 0; i < Engine.AMOUNT_CORRECT_ANSWERS; i++) {
             int number1 = rand.nextInt(0, MAX_NUMBERS);
             int number2 = rand.nextInt(0, MAX_NUMBERS);
             char signChar = getSign(rand.nextInt(0, MAX_SIGN));
 
-            correctAnswers[i] = String.valueOf(calc(number1, number2, signChar));
-            questions[i] = number1 + " " + signChar + " " + number2;
+            questionsAnswers[i][0] = number1 + " " + signChar + " " + number2;
+            questionsAnswers[i][1] = String.valueOf(calc(number1, number2, signChar));
         }
-        Engine.runGame(TASK, questions, correctAnswers);
+        Engine.runGame(TASK, questionsAnswers);
     }
     public static char getSign(int sign) {
         switch (sign) {

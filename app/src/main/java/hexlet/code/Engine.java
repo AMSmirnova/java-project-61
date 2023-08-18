@@ -14,14 +14,14 @@ public class Engine {
         return userName;
     }
 
-    public static void runGame(String task, String[] questions, String[] correctAnswers) {
+    public static void runGame(String task, String[][] questionsAnswers) {
         String userName = greetings();
         int countAnswers = 0;
         boolean wasCorrectAnswer = true;
 
         System.out.println(task);
         while (countAnswers < AMOUNT_CORRECT_ANSWERS && wasCorrectAnswer) {
-            wasCorrectAnswer = checkAnswer(questions[countAnswers], correctAnswers[countAnswers]);
+            wasCorrectAnswer = checkAnswer(questionsAnswers[countAnswers][0], questionsAnswers[countAnswers][1]);
             countAnswers++;
         }
 

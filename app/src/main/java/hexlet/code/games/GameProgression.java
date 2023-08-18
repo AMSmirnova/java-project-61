@@ -13,18 +13,17 @@ public class GameProgression {
 
     public static void gameProgression() {
         Random rand = new Random();
-        String[] questions = new String[Engine.AMOUNT_CORRECT_ANSWERS];
-        String[] correctAnswers = new String[Engine.AMOUNT_CORRECT_ANSWERS];
+        String[][] questionsAnswers = new String[Engine.AMOUNT_CORRECT_ANSWERS][2];
 
         for (int i = 0; i < Engine.AMOUNT_CORRECT_ANSWERS; i++) {
             int addictive = rand.nextInt(MIN_ADDICTIVE, MAX_ADDICTIVE);
             int gap = rand.nextInt(0, AMOUNT_NUMBERS);
             int firstNumber = rand.nextInt(MAX_FIRST_NUMBER);
 
-            correctAnswers[i] = String.valueOf(newProgressionNumber(firstNumber, addictive, gap));
-            questions[i] = makeProgression(firstNumber, addictive, gap);
+            questionsAnswers[i][0] = makeProgression(firstNumber, addictive, gap);
+            questionsAnswers[i][1] = String.valueOf(newProgressionNumber(firstNumber, addictive, gap));
         }
-        Engine.runGame(TASK, questions, correctAnswers);
+        Engine.runGame(TASK, questionsAnswers);
     }
 
     public static String makeProgression(int firstNumber, int addictive, int gap) {
