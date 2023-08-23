@@ -1,7 +1,6 @@
 package hexlet.code.games;
 
 import hexlet.code.Engine;
-
 import java.util.Random;
 
 public class GameProgression {
@@ -9,7 +8,7 @@ public class GameProgression {
     private static final int AMOUNT_NUMBERS = 10; // amount of numbers in progression
     private static final int MAX_FIRST_NUMBER = 20; // the maximum possible first number in progression
     private static final int MAX_ADDICTIVE = 4; // // the maximum possible addition to the number
-    private static final int MIN_ADDICTIVE = 1; // // the minimum possible addition to the number
+    private static final int MIN_ADDICTIVE = 2; // // the minimum possible addition to the number
 
     public static void gameProgression() {
         Random rand = new Random();
@@ -20,22 +19,32 @@ public class GameProgression {
             int gap = rand.nextInt(0, AMOUNT_NUMBERS);
             int firstNumber = rand.nextInt(MAX_FIRST_NUMBER);
 
-            questionsAnswers[i][0] = makeProgression(firstNumber, addictive, gap);
+            int[] progression = makeProgression(firstNumber, addictive);
+
+            questionsAnswers[i][0] = hideNumber(progression, gap);
             questionsAnswers[i][1] = String.valueOf(newProgressionNumber(firstNumber, addictive, gap));
         }
         Engine.runGame(TASK, questionsAnswers);
     }
 
-    public static String makeProgression(int firstNumber, int addictive, int gap) {
-        String progression = "";
+    public static int[] makeProgression(int firstNumber, int addictive) {
+        int[] progression = new int[AMOUNT_NUMBERS];
+        for (int i = 0; i < AMOUNT_NUMBERS; i++) {
+            progression[i] = newProgressionNumber(firstNumber, addictive, i);
+        }
+        return progression;
+    }
+
+    public static String hideNumber(int[] progression, int gap) {
+        String result = "";
         for (int i = 0; i < AMOUNT_NUMBERS; i++) {
             if (i != gap) {
-                progression = progression + " " + newProgressionNumber(firstNumber, addictive, i);
+                result  = result + " " + progression[i];
             } else {
-                progression = progression + " ..";
+                result = result + " ..";
             }
         }
-        return progression.trim();
+        return result.trim();
     }
 
     public static int newProgressionNumber(int firstNumber, int addictive, int count) {

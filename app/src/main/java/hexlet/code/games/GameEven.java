@@ -6,6 +6,7 @@ import java.util.Random;
 
 public class GameEven {
     private static final String TASK = "Answer 'yes' if the number is even, otherwise answer 'no'.";
+
     public static void gameEven() {
         Random rand = new Random();
         String[][] questionsAnswers = new String[Engine.AMOUNT_CORRECT_ANSWERS][2];

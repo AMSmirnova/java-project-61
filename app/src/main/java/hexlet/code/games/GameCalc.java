@@ -8,6 +8,7 @@ public class GameCalc {
     private static final String TASK = "What is the result of the expression?";
     private static final int MAX_NUMBERS = 16; // the maximum possible numbers in the task
     private static final int MAX_SIGN = 3; // amount of signs
+
     public static void gameCalc() {
         Random rand = new Random();
         String[][] questionsAnswers = new String[Engine.AMOUNT_CORRECT_ANSWERS][2];
@@ -34,8 +35,9 @@ public class GameCalc {
                 return '*';
             }
             default -> {
+                throw new RuntimeException();
             }
-        } return ' ';
+        }
     }
 
     public static int calc(int number1, int number2, char sign) {
@@ -51,8 +53,8 @@ public class GameCalc {
 
             }
             default -> {
+                throw new RuntimeException();
             }
         }
-        return 0;
     }
 }
